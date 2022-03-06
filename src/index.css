@@ -188,12 +188,8 @@ input:focus {
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
  * document */
 .about-link {
-  /* display: flex;
-  justify-content: flex-end; */
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  color: #fff;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the

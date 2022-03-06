@@ -22,12 +22,34 @@ export const FeedbackProvider = ({ children }) => {
     },
   ]);
 
+  const [feedbackEdit, setFeedbackEdit] = useState({
+    item: {},
+    edit: false,
+  });
+
+  // Delete Feedback
   const deleteFeedback = (id) => {
     if (window.confirm("Are you sure?")) {
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
 
+  // Edit Feedback
+  const editFeedback = (item) => {
+    setFeedbackEdit({
+      item: item,
+      edit: true,
+    });
+  };
+
+  // Update Feedback
+  const updateFeedback = (id, updItem) => {
+    setFeedback(
+      feedback.map((item) => (item.id === id ? { ...item, ...updItem } : item))
+    );
+  };
+
+  // Add Feedback
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();
     setFeedback([newFeedback, ...feedback]);
@@ -39,6 +61,9 @@ export const FeedbackProvider = ({ children }) => {
         feedback: feedback,
         deleteFeedback: deleteFeedback,
         addFeedback: addFeedback,
+        editFeedback,
+        feedbackEdit,
+        updateFeedback,
       }}
     >
       {children}
