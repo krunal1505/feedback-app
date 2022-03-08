@@ -9,7 +9,7 @@ function Header({ text, bgColor, textColor }) {
   return (
     <header style={headerStyles}>
       <div className="container">
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none", color: "#ff6a95" }}>
           <h2>{text}</h2>
         </Link>
       </div>
